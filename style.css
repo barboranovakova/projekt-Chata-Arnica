@@ -4,7 +4,17 @@
   --background-primary: #f3f3f3;
   --background-secondary: #cdddda;
   --text: #1f2403;
+  --font-default: 'Alegreya Sans', sans-serif;
+  --font-brand: 'Dawning of a New Day', cursive;
+  --font-title: 'Lora', serif;
 }
+
+:root[data-theme='dark'] {
+  --background-primary: #132221;
+  --background-secondary: #476462;
+  --text: #e1e1e1;
+}
+
 
 /* ZÁKLADNÍ STYLY */
 
@@ -15,6 +25,7 @@ body,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
 }
 
 html {
@@ -38,20 +49,47 @@ span {
   line-height: 1.5;
 }
 
+body {
+  font-family: var(--font-default);
+  color: var(--text);
+}
+
+.intro-image {
+  height: 70vh;
+  background-image: url('images/arnica-intro.jpg');
+  background-size: cover;
+  background-position: center;
+
+
+}
+
+
+
+
 /* HLAVIČKA - NAVIGACE */
 
 .page-header {
   padding: 1.5rem;
   padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background-secondary);
+  align-items: baseline;
+
 }
 
 .logo {
   font-size: 1.5rem;
+  font-family: var(--font-brand);
+
 }
 
 .navlink {
   text-decoration: none;
   margin-right: 0.5rem;
+  color: var(--text);
+
+
 }
 
 /* HLAVNÍ NADPIS */
@@ -59,6 +97,8 @@ span {
 .pitch {
   padding: 2.5rem 1.5rem;
   font-size: 2.5rem;
+  font-family: var(--font-title);
+  background-color: var(--background-secondary);
 }
 
 /* ÚVODNÍ TEXT  */
@@ -66,10 +106,14 @@ span {
 .subheading {
   padding: 2.5rem 1.5rem;
   font-size: 1.5rem;
+  font-family: var(--font-default);
+  background-color: var(--background-primary);
+  color: var(--text);
 }
 
 .subheading__content {
   margin: 0 auto;
+  max-width: 800px;
 }
 
 /* CENOVÁ NABÍDKA */
@@ -79,6 +123,7 @@ span {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--background-secondary);
 }
 
 .pricelist__title {
@@ -96,6 +141,8 @@ span {
 
 .offer {
   margin: 1rem 0 2rem 0;
+  width: 80%;
+  max-width: 270px;
 }
 
 .offer__header {
@@ -128,6 +175,9 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--background-primary);
+
+
 }
 
 .review__title {
@@ -139,11 +189,15 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .review__text {
   padding: 2rem;
   font-size: 1.3rem;
+  font-family: var(--font-default oblique);
+  border: 2px solid var(--background-secondary);
+
 }
 
 .review__author {
@@ -162,6 +216,7 @@ span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--background-secondary);
 }
 
 .contact__row span {
@@ -183,9 +238,10 @@ span {
   margin-right: 0.5rem;
 }
 
-/* SEM ZAČNĚTE PSÁT SVÉ STYLY PRO MOBIL */
+/* SEM ZAČNĚTE PSÁT SVÉ STYLY PRO DESKTOP */
 
 @media (min-width: 840px) {
+
   /* HLAVIČKA - NAVIGACE */
   .page-header {
     padding: 2rem 4rem;
@@ -204,6 +260,8 @@ span {
 
   .pitch {
     font-size: 3rem;
+    display: flex;
+    justify-content: center;
   }
 
   /* ÚVODNÍ TEXT */
@@ -211,6 +269,25 @@ span {
   .subheading {
     padding: 2.5rem 4rem;
     font-size: 1.75rem;
+    text-align: center;
+  }
+
+  .pricelist__content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 3rem;
+  }
+
+
+
+  .offer {
+    margin: 1rem 0 2rem 0;
+    flex-basis: 220px;
+    flex-shrink: 0;
+
   }
 
   /* RECENZE */
@@ -218,7 +295,59 @@ span {
   .review__text {
     width: 250px;
     padding: 1.5rem;
+    position: relative;
+    left: 60px;
+    background-color: var(--background-secondary);
+
   }
 
-  /* TADY PIŠTE STYLY PRO ŠÍŘKU NAD 800PX */
+  .review__photo {
+    width: 300px;
+    height: 400px;
+    background-image: url('images/reviewer.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .footer {
+    padding: 2.5rem 1.5rem;
+    font-size: 1.2rem;
+
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: baseline;
+    justify-content: center;
+    background-color: var(--background-secondary);
+
+    /* TADY PIŠTE STYLY PRO ŠÍŘKU NAD 800PX */
+  }
+}
+
+@media (min-width: 840px) {
+
+  .pricelist__content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 6rem;
+  }
+
+  .footer {
+    padding: 2.5rem 1.5rem;
+    font-size: 1.2rem;
+
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    gap: 6rem;
+    align-items: baseline;
+    justify-content: center;
+    background-color: var(--background-secondary);
+
+
+  }
 }
